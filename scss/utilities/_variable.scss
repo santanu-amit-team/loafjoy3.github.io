@@ -1,0 +1,102 @@
+// Color theme
+
+$primary: #417191 !default;
+$secondary: #02cdba !default;
+$secondary-light: #a5e4dc !default;
+$secondary-lighter: #dcf2f0 !default;
+$accent: #55626a !default;
+$accent-light: #838383 !default;
+$accent-dark: #3d484f !default;
+$bg: #ced6de !default; //ecedef
+$bg-light: #f9f9fa !default;
+$light: #f9f9fa !default;
+$dark: #000 !default;
+$white: #fff !default;
+$border: #e3e3e3 !default;
+$mark: #ff595e !default;
+
+$error: #e15252 !default;
+$success: #06c167 !default;
+$warning: #ffc107 !default;
+
+// Links
+
+$link-color: $primary !default;
+$link-hover-color: $secondary !default;
+
+$clr-shade1: #145446 !default;
+
+//user changes theme colors:
+$color: (
+  primary: $primary,
+  secondary: $secondary,
+  secondary-light: $secondary-light,
+  secondary-lighter: $secondary-lighter,
+  accent: $accent,
+  accent-light: $accent-light,
+  accent-dark: $accent-dark,
+  link: $link-color,
+  link-hover: $link-hover-color,
+  bg: $bg,
+  bg-light: $bg-light,
+  light: $light,
+  dark: $dark,
+  white: $white,
+  border: $border,
+  mark: $mark,
+  error: $error,
+  success: $success,
+  warning: $warning,
+  clr-shade1: $clr-shade1,
+) !default;
+
+// font-family
+
+$ff-base: "eina-regular";
+$ff-base-smbold: "eina-semibold";
+$ff-base-bold: "eina-bold";
+$ff-heading: "Ubuntu", sans-serif;
+
+// Typography
+
+$spacer: 5rem;
+$fs-base: 1rem !default; // Assumes the browser default, typically `16px`
+
+$lh-base: 1.6 !default;
+$lh-heading: 1.2 !default;
+
+$h1: $fs-base * 2.5 !default;
+$h2: $fs-base * 2 !default;
+$h3: $fs-base * 1.75 !default;
+$h4: $fs-base * 1.5 !default;
+$h5: $fs-base * 1.25 !default;
+$h6: $fs-base !default;
+$fs-sm: $fs-base * 0.875 !default;
+$fs-xs: $fs-base * 0.75 !default;
+
+// font-weight
+$weight: (
+  thin: 100,
+  exlight: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  smbold: 600,
+  bold: 700,
+  exbold: 800,
+  black: 900,
+);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes: map-merge(
+  (
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%,
+    auto: auto,
+  ),
+  $sizes
+);

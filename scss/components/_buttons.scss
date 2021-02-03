@@ -1,0 +1,67 @@
+%btn {
+  width: auto;
+  display: inline-block;
+  font-size: 1.25rem;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  box-shadow: none;
+  border: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  @include bd-radius(3rem);
+  position: relative;
+  font-family: $ff-base-bold;
+
+  @include hover-focus-active {
+    @include set-background(color(secondary));
+  }
+}
+%btn-light {
+  @extend %btn;
+  @include set-background(lighten(color(light), 10%));
+  text-decoration: none;
+}
+%btn-dark {
+  @extend %btn;
+  @include set-background(color(dark));
+  text-decoration: none;
+}
+.btn-sm {
+  @extend %btn;
+  font-size: $fs-sm;
+  padding: 0.5rem 2rem;
+}
+.btn-primary {
+  @extend %btn;
+  @include set-background(color(primary));
+  font-weight: weight(medium);
+
+  @include hover-focus {
+    @include set-background(color(secondary));
+  }
+}
+.btn-secondary {
+  @extend %btn;
+  @include set-background(color(secondary));
+  font-weight: weight(medium);
+
+  @include hover-focus {
+    @include set-background(color(primary));
+  }
+}
+.btn-light {
+  @extend %btn-light;
+
+  @include hover-focus {
+    @include set-background(color(primary));
+  }
+}
+.btn-mark {
+  @extend %btn;
+  @include set-background(color(mark));
+  font-weight: weight(medium);
+
+  @include hover-focus {
+    @include set-background(color(secondary));
+  }
+}

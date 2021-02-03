@@ -1,0 +1,283 @@
+.form_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 1.25rem 0;
+
+  .form_row {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 1.25rem 0;
+    align-items: center;
+    justify-content: space-between;
+
+    &.col2 {
+      grid-template-columns: 1fr;
+    }
+    &.col3 {
+      grid-template-columns: 1fr;
+    }
+
+    @include media(">=sm") {
+      grid-gap: 1.25rem 1.5rem;
+
+      &.col2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      &.col3 {
+        grid-template-columns: repeat(3, 1fr);
+
+        .span2 {
+          grid-column: span 2;
+        }
+      }
+    }
+  }
+
+  .form-group {
+    margin-bottom: 0;
+    font-size: $fs-sm;
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+
+      span {
+        color: $error;
+      }
+    }
+    .form-control {
+      display: block;
+      width: 100%;
+      height: 2.75rem;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      font-weight: weight(regular);
+      font-family: $ff-heading;
+      line-height: 1.5;
+      @include set-background(color(white));
+      background-clip: padding-box;
+      border: 1px solid color(primary);
+      @include bd-radius(0.25rem);
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    ::placeholder {
+      color: color(primary);
+      opacity: 1; /* Firefox */
+    }
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: color(primary);
+    }
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: color(primary);
+    }
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: bg("arrow_down.svg") no-repeat 95%;
+      background-size: 0.5rem;
+    }
+
+    textarea {
+      width: 100%;
+      height: 7.5rem !important;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.5;
+      padding: 0.375rem 0.75rem;
+      border: 1px solid $border;
+      @include set-background(color(light));
+      @include bd-radius(2px);
+    }
+
+    .error {
+      background: bg("error.svg") no-repeat 95%;
+      background-size: 1rem;
+      border: 1px solid $error;
+    }
+    .success {
+      background: bg("success.svg") no-repeat 95%;
+      background-size: 1rem;
+      border: 1px solid $success;
+    }
+    .cvv {
+      background: bg("question.svg") no-repeat 95%;
+      background-size: 1rem;
+    }
+    .error-msg {
+      display: none;
+      margin-top: 0.25rem;
+      color: $error;
+      font-size: 0.875rem;
+    }
+
+    /*check-box*/
+    .form-check + .form-check {
+      @include margin(left, 0.5);
+    }
+    .form-check {
+      position: relative;
+      display: inline-block;
+
+      input[type="radio"] {
+        position: absolute;
+        visibility: hidden;
+      }
+
+      label {
+        display: inline-block;
+        position: relative;
+        font-weight: weight(light);
+        font-size: 1rem;
+        @include padding(left, 1.5);
+        margin: 0;
+        z-index: 9;
+        cursor: pointer;
+        transition: all 0.25s linear;
+      }
+
+      &:hover label {
+        color: $primary;
+      }
+
+      .check {
+        display: block;
+        position: absolute;
+        border: 2px solid $border;
+        @include bd-radius(100%);
+        height: 1rem;
+        width: 1rem;
+        top: 0.25rem;
+        left: 0;
+        z-index: 5;
+        transition: border 0.25s linear;
+
+        &::before {
+          display: block;
+          position: absolute;
+          content: "";
+          border-radius: 100%;
+          height: 10px;
+          width: 10px;
+          top: 1px;
+          left: 1px;
+          margin: auto;
+          transition: background 0.25s linear;
+        }
+      }
+      &:hover .check {
+        border: 5px solid #9d9999;
+      }
+    }
+
+    /*check-box*/
+    .label-cbx {
+      user-select: none;
+      cursor: pointer;
+      margin-bottom: 0;
+
+      input:checked + .checkbox {
+        border-color: #20c2e0;
+
+        svg path {
+          fill: #20c2e0;
+        }
+
+        svg polyline {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      &:hover .checkbox svg path {
+        stroke-dashoffset: 0;
+      }
+
+      .checkbox {
+        position: relative;
+        float: left;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #c8ccd4;
+        border-radius: 3px;
+        box-sizing: border-box;
+        top: 2px;
+
+        svg {
+          position: absolute;
+          top: -2px;
+          left: -2px;
+
+          path {
+            fill: none;
+            stroke: #20c2e0;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 71px;
+            stroke-dashoffset: 71px;
+            transition: all 0.6s ease;
+          }
+
+          polyline {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 18px;
+            stroke-dashoffset: 18px;
+            transition: all 0.3s ease;
+          }
+        }
+      }
+
+      > span {
+        pointer-events: none;
+        vertical-align: middle;
+        padding-left: 0.5rem;
+        color: var(--clr-content);
+      }
+
+      .invisible {
+        position: absolute;
+        z-index: -1;
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+    }
+
+    .cntr {
+      position: relative;
+      width: 250px;
+      text-align: center;
+      margin: 50px auto 0px;
+    }
+
+    input[type="radio"]:checked ~ .check {
+      border: 2px solid $accent;
+    }
+    input[type="radio"]:checked ~ .check::before {
+      background: $accent;
+    }
+    input[type="radio"]:checked ~ label {
+      color: $accent;
+    }
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min--moz-device-pixel-ratio: 1.25),
+  only screen and (-o-min-device-pixel-ratio: 1.25/1),
+  only screen and (min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 200dpi),
+  only screen and (min-resolution: 1.25dppx) {
+  select {
+    background: bg("arrow_down@2x.svg") no-repeat 95%;
+    background-size: 0.75rem;
+  }
+}

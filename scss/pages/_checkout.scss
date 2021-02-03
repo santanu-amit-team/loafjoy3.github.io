@@ -1,0 +1,447 @@
+/*....checkout page
+...........................*/
+.section_checkout {
+  background: bg("checkout-bg.svg") no-repeat top right color(secondary-lighter);
+  background-size: 50%;
+  @include border(bottom, 1.375rem, color(secondary-light));
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -1.375rem;
+    right: 0;
+    background: bg("wave.svg") no-repeat;
+    background-size: 100%;
+    width: 200px;
+    height: 4.75rem;
+
+    @include media(">=lg") {
+      width: 400px;
+      height: 7.5rem;
+    }
+  }
+
+  .checkout_header {
+    background: bg("header-wave.svg") no-repeat top center;
+    background-size: auto;
+    padding: 2.5rem 0 5rem;
+    text-align: center;
+  }
+
+  &_heading {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include margin(bottom, 1);
+    flex-wrap: wrap;
+
+    h3 {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: color(primary-dark);
+      @include padding(right, 1);
+    }
+
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      @include padding(right, 1);
+
+      li {
+        font-size: $fs-sm;
+        font-weight: weight(bold);
+        text-transform: uppercase;
+        padding: 0.5em 0;
+        width: 8.5rem;
+        color: color(secondary-light);
+        @include border(bottom, 3px, currentcolor);
+
+        &.active {
+          color: color(primary);
+        }
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+    #countdown {
+      max-width: 16.875rem;
+      @include margin(top, 1);
+
+      @include media(">=md") {
+        margin-left: auto;
+      }
+
+      p {
+        font-size: $fs-sm;
+        color: color(primary);
+        font-weight: weight(bold);
+        text-transform: uppercase;
+        @include margin(bottom, 0.75);
+      }
+      ul {
+        display: flex;
+        justify-content: space-between;
+
+        li + li {
+          @include margin(left, 1.25);
+        }
+
+        li {
+          @include set-background(color(secondary));
+          @include bd-radius(0.25rem);
+          @include padding(bottom, 0.25);
+          font-size: $fs-xs;
+          text-transform: uppercase;
+          position: relative;
+          text-align: center;
+
+          span {
+            font-size: 1.75rem;
+            display: block;
+            line-height: 1.2;
+          }
+        }
+
+        li + li:before {
+          content: ":";
+          position: absolute;
+          left: -0.75rem;
+          top: 0.5rem;
+          font-size: 2rem;
+          color: color(primary);
+          line-height: 1;
+        }
+      }
+    }
+  }
+
+  &_wrap {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+    align-items: flex-start;
+    grid-gap: 1.75rem 0;
+
+    @include media(">=md") {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 0 1.75rem;
+    }
+
+    & > * {
+      height: 100%;
+    }
+
+    .span2 {
+      grid-column: span 2;
+    }
+
+    .form_box {
+      @include set-background(color(white));
+      padding: 1.75rem 1rem;
+      @include bd-radius(0.25rem);
+
+      @include media(">=sm") {
+        padding: 1.75rem 2rem;
+      }
+
+      .heading {
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: weight(bold);
+        position: relative;
+        @include margin(bottom, 1.25);
+        color: color(mark);
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 50%;
+          width: 100%;
+          height: 1px;
+          background: color(border);
+        }
+
+        span {
+          background: color(white);
+          position: relative;
+          z-index: 1;
+          @include padding(right, 1);
+        }
+      }
+
+      .form_container {
+        .cart {
+          @include padding(right, 0.5);
+        }
+        p {
+          font-size: $fs-sm;
+          color: color(accent-light);
+        }
+        .btn {
+          @include bd-radius(0.25rem);
+          font-size: 1rem;
+          padding: 0.5rem 1.25rem;
+          @include margin(top, 0.5);
+        }
+      }
+
+      .cards_box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        @include margin(bottom, 0.75);
+
+        .heading {
+          @include margin(bottom, 0.5);
+        }
+        .cards_icon {
+          text-align: right;
+          color: color(bg-light);
+          p {
+            font-size: $fs-xs;
+          }
+          img {
+            width: 11rem;
+            @include margin(top, 0.5);
+          }
+        }
+      }
+    }
+
+    .product_box {
+      @include set-background(color(white));
+      padding: 1.75rem 1.5rem 1.5rem;
+      @include bd-radius(0.25rem);
+      text-align: center;
+      font-family: $ff-heading;
+
+      .heading {
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        @include margin(bottom, 1);
+        font-weight: weight(bold);
+        position: relative;
+        text-align: left;
+
+        span {
+          float: right;
+          font-size: 1rem;
+          color: color(secondary);
+        }
+      }
+
+      .bottom {
+        @include content-gap();
+        @include margin(top, 1);
+        p {
+          font-size: $fs-sm;
+          line-height: 1.4;
+          font-weight: weight(bold);
+          color: color(primary);
+          text-align: center;
+        }
+        .cart {
+          @include border(top, 1px, color(border));
+          @include padding(top, 0.75);
+          color: color(accent-light);
+          font-weight: weight(medium);
+          img {
+            @include padding(right, 0.5);
+          }
+        }
+        .line {
+          @include margin(bottom, 0);
+        }
+        .btn-primary {
+          font-size: 1rem;
+          padding: 0.5rem 2rem;
+          @include bd-radius(0.25rem);
+        }
+        p.risk {
+          color: color(accent-light);
+          font-size: $fs-xs;
+        }
+      }
+
+      .summary {
+        @include padding(bottom, 1);
+        @include border(bottom, 1px, color(border));
+        @include content-gap(1.125);
+
+        p {
+          font-size: 1rem;
+          text-align: left;
+          font-size: $fs-sm;
+
+          span {
+            float: right;
+          }
+          mark {
+            background: transparent;
+            color: color(mark);
+            font-weight: weight(bold);
+          }
+        }
+
+        p:first-of-type {
+          font-size: 1rem;
+          text-transform: uppercase;
+          font-weight: weight(medium);
+        }
+      }
+
+      .prod_list {
+        @include margin(top, 1);
+
+        li {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          @include margin(bottom, 1);
+
+          .img {
+            flex-basis: 30%;
+            img {
+              max-width: 100px;
+            }
+          }
+          .details {
+            @include padding(left, 1);
+            @include content-gap();
+
+            p {
+              text-align: left;
+              font-size: $fs-sm;
+              text-transform: uppercase;
+              font-weight: weight(bold);
+              color: color(primary);
+
+              span {
+                float: right;
+              }
+            }
+          }
+        }
+      }
+
+      p.shipping {
+        font-size: $fs-sm;
+        font-weight: weight(medium);
+
+        img {
+          @include padding(right, 0.5);
+        }
+      }
+    }
+
+    .card_box {
+      @include set-background(color(white));
+      @include margin(top, 1.5);
+
+      .tag {
+        font-size: $fs-xs;
+        color: color(bg);
+        @include margin(bottom, 0.5);
+
+        img {
+          width: 1rem;
+          vertical-align: middle;
+          @include padding(left, 0.25);
+        }
+      }
+      &_details {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 1.25rem 1.5rem;
+        align-items: center;
+        justify-content: space-between;
+
+        &.col2 {
+          grid-template-columns: 1fr;
+        }
+
+        @include media(">=sm") {
+          &.col2 {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @include media(">=md") {
+          &.col2 {
+            grid-template-columns: 1fr;
+          }
+        }
+        @include media(">=lg") {
+          &.col2 {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        .card_details {
+          @include set-background(color(bg));
+          @include bd-radius(0.25rem);
+          padding: 1rem;
+          min-height: 11.25rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: flex-start;
+
+          p {
+            width: 100%;
+            font-size: 1.125rem;
+            @include margin(top, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            span.small {
+              font-size: $fs-xs;
+              display: block;
+            }
+          }
+        }
+        img.card {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .testi_box {
+    padding: 2.5rem 0 3rem;
+    max-width: 30rem;
+    @include m-auto();
+    text-align: center;
+
+    .quote {
+      @include margin(bottom, 2);
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    span.title {
+      color: #02cdba;
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      font-size: 1.125rem;
+    }
+    .slick-prev:before,
+    .slick-next:before {
+      color: color(secondary);
+    }
+    .slick-prev,
+    .slick-next {
+      display: none !important;
+    }
+  }
+}

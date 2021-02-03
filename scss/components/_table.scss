@@ -1,0 +1,72 @@
+.table {
+  width: 100%;
+  max-width: 100%;
+  @include margin(bottom, 2);
+  @include set-background(color(light));
+  @include font-size($fs-sm);
+  @include text(center);
+  font-family: $ff-heading;
+
+  @include media("<lg") {
+    @include font-size(0.75rem);
+  }
+  @include media("<480px") {
+    @include font-size(0.5rem);
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+    vertical-align: top;
+    border-top: 1px solid $border;
+
+    @include media("<479px") {
+      padding: 0.375rem;
+    }
+  }
+
+  thead th {
+    vertical-align: middle;
+    border-bottom: 2px solid $border;
+    @include set-background(lighten(color(primary), 30%));
+  }
+
+  tbody + tbody {
+    border-top: 2px solid $border;
+  }
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  tbody tr:nth-of-type(even) {
+    @include set-background(color(bg));
+  }
+}
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  tbody tr {
+    @include hover() {
+      @include set-background(color(bg));
+    }
+  }
+}
+
+// Responsive tables
+//
+// Generate series of `.table-responsive-*` classes for configuring the screen
+// size of where your table will overflow.
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}

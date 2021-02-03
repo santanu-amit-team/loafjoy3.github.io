@@ -1,0 +1,152 @@
+/*....header section
+...........................*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+
+  #header {
+    padding: 2.5rem 0;
+    transition: ease 0.5s;
+  }
+
+  .header_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include padding(left, 0.938);
+    @include padding(right, 0.938);
+
+    & > * {
+      flex: 1 1 100%;
+    }
+
+    .logo {
+      text-align: center;
+
+      img {
+        max-width: 10rem;
+      }
+    }
+
+    .sidenav {
+      .menu {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: "eina-semibold";
+
+        li + li {
+          @include padding(left, 1);
+        }
+
+        li {
+          text-transform: uppercase;
+          font-size: $fs-sm;
+        }
+        li:last-child {
+          display: none;
+        }
+      }
+    }
+
+    .header_btn {
+      text-align: right;
+    }
+
+    .btn {
+      @include bd-radius(0);
+    }
+
+    @include media("<lg") {
+      & > * {
+        flex: inherit;
+      }
+      .header_btn {
+        display: none;
+      }
+      .bars {
+        display: block;
+        font-size: 1.75rem;
+        color: color(primary);
+      }
+      .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        right: 0;
+        @include set-background(color(secondary-lighter));
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding: 4rem 0 2rem;
+        text-align: center;
+
+        .menu {
+          flex-direction: column;
+          justify-content: flex-start;
+          height: 100%;
+
+          li + li {
+            padding: 0;
+            @include margin(top, 1);
+          }
+
+          li {
+            font-size: 1.125rem;
+          }
+
+          li:last-child {
+            margin-top: auto;
+            display: block;
+          }
+        }
+
+        .closebtn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include set-background(color(primary));
+          padding: 0;
+          width: 3.75rem;
+          height: 3.75rem;
+          text-align: center;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.sticky {
+  position: relative;
+  top: 0;
+  width: 100%;
+  @include set-background(color(secondary-light));
+  transition: ease 0.5s;
+  z-index: 9;
+  padding: 1rem 0 !important;
+}
+.closebtn,
+.bars {
+  display: none;
+}
+
+/*....noitce section
+...........................*/
+.section_notice {
+  @include set-background(color(error));
+  text-align: center;
+  padding: 0.675rem 0;
+  p {
+    font-family: $ff-heading;
+    font-weight: weight(Medium);
+  }
+}

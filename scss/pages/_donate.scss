@@ -1,0 +1,227 @@
+/*....hero-donate section
+...........................*/
+.hero_donate {
+  background: bg("hero_donate_bg.png") no-repeat bottom center
+    color(secondary-lighter);
+  background-size: cover;
+  padding: 3rem 0 7.5rem;
+
+  @include media(">=lg") {
+    padding: 6.25rem 0 7.5rem;
+  }
+
+  &_wrap {
+    .donate_top {
+      text-align: center;
+      h2 {
+        font-size: 2rem;
+        font-size: clamp(2rem, 6vw, 2.875rem);
+        text-transform: uppercase;
+        color: color(primary);
+      }
+
+      p {
+        font-size: 1.25rem;
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        font-family: $ff-heading;
+        margin: 1.75rem 0;
+      }
+
+      .plan_box {
+        @include set-background(color(secondary));
+        max-width: 35.625rem;
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+        justify-content: space-between;
+        align-items: center;
+        grid-gap: 2rem;
+        align-items: center;
+        margin: 0 auto 4.5rem;
+        padding: 1rem;
+        @include bd-radius(0.25rem);
+
+        @include media(">=sm") {
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 3rem;
+          padding: 0.5rem 5rem;
+        }
+
+        li:first-child {
+          &:after {
+            content: none;
+          }
+        }
+
+        li {
+          position: relative;
+
+          &:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: -15px;
+            background: color(white);
+            width: 3rem;
+            height: 1px;
+            transform: translateX(-50%);
+
+            @include media(">=sm") {
+              content: "";
+              position: absolute;
+              left: -25%;
+              top: 50%;
+              width: 1px;
+              height: 2rem;
+              transform: translateY(-50%);
+            }
+          }
+
+          h3 {
+            font-size: 1.5rem;
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+          }
+          p {
+            font-size: 11px;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .donate_bottom {
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: 1fr;
+      justify-content: space-between;
+      align-items: center;
+      grid-gap: 1.75rem;
+      @include padding(bottom, 2);
+
+      @include media(">=sm") {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include media(">=lg") {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .donate_box {
+        @include set-background(color(white));
+        @include border(top, 0.5rem, color(secondary));
+        padding: 1.75rem 2rem;
+        text-align: center;
+        position: relative;
+        transition: all ease-in-out 0.5s;
+        height: 100%;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: -43px;
+          left: 0;
+          width: 100%;
+          height: 43px;
+          background: bg("wave2.svg") no-repeat bottom right;
+          background-size: contain;
+        }
+
+        .title {
+          font-family: $ff-heading;
+          font-size: 1.5rem;
+          text-transform: uppercase;
+          font-weight: weight(bold);
+          color: color(secondary);
+        }
+        .price {
+          font-family: $ff-heading;
+          color: color(primary);
+          font-weight: weight(medium);
+          font-size: 1.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .input-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background-color: color(white);
+            border: 1px solid color(border);
+            border-radius: 0.25rem;
+            margin: 0 0.5rem;
+
+            .form-control {
+              padding: 0.25rem 1rem;
+              font-size: 1rem;
+              font-weight: 400;
+              line-height: 1.5;
+              background-color: color(white);
+              border: 0;
+              -webkit-appearance: none;
+              -appearance: none;
+            }
+
+            span {
+              @include set-background(color(secondary));
+              font-size: 1rem;
+              padding: 0.25rem;
+            }
+          }
+        }
+        .option {
+          font-family: $ff-heading;
+          color: color(accent-light);
+          font-size: $fs-xs;
+          @include margin(bottom, 1.5);
+          color: color(primary);
+        }
+
+        .btn {
+          font-family: $ff-heading;
+          font-size: 1rem;
+        }
+
+        &.active {
+          .btn {
+            @include set-background(color(primary));
+
+            &:before {
+              content: "\f058";
+              position: absolute;
+              left: 10px;
+              top: 7px;
+              font-family: "Font Awesome 5 Free";
+              font-size: 1rem;
+              font-weight: weight(bold);
+              color: color(success);
+            }
+          }
+        }
+
+        &:hover {
+          transform: scale(1.1);
+          transition: all ease-in-out 0.5s;
+        }
+      }
+    }
+
+    .section_proceed {
+      text-align: center;
+      .btn-primary {
+        @include bd-radius(0.25rem);
+        padding: 0.875rem 3rem;
+        @include margin(bottom, 0.75);
+      }
+      .link {
+        font-family: $ff-heading;
+        color: color(accent-dark);
+
+        @include hover-focus {
+          color: color(link-hover);
+        }
+      }
+    }
+  }
+}

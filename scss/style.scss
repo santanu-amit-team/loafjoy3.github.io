@@ -1,0 +1,42 @@
+//utilities
+@import "utilities/config";
+
+//vendors
+@import "vendors/font-awesome/fontawesome";
+@import "vendors/aos/aos";
+
+//base
+@import "base/reset";
+@import "base/typography";
+
+//components
+@import "components/fonts";
+@import "components/icon-fonts";
+@import "components/buttons";
+@import "components/sizing";
+@import "components/form";
+@import "components/table";
+@import "components/list";
+@import "components/preloader";
+@import "components/global";
+
+//layout
+@import "layout/header";
+@import "layout/content";
+@import "layout/footer";
+
+//pages
+@import "pages/home";
+@import "pages/checkout";
+@import "pages/donate";
+@import "pages/warrenty";
+
+//theme
+@import "themes/theme"; // Default theme
+@import "themes/admin"; // Admin theme
+
+//responsive
+@import "components/responsive";
+
+//base
+@import "base/base"; // add your base style here

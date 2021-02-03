@@ -1,0 +1,39 @@
+//border-radius
+@mixin bd-radius($value: 0.25rem) {
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  -o-border-radius: $value;
+  border-radius: $value;
+}
+
+//box-shadow
+@mixin box-shadow($top, $left, $blur, $color) {
+  -webkit-box-shadow: $top $left $blur $color;
+  -moz-box-shadow: $top $left $blur $color;
+  -o-box-shadow: $top $left $blur $color;
+  box-shadow: $top $left $blur $color;
+}
+
+//border
+@mixin border($position, $width: 1px, $color: $border, $style: solid) {
+  border-#{$position}: $width $color $style;
+}
+
+//text align
+@mixin text($value) {
+  text-align: $value;
+}
+
+//box align
+@mixin align-center($value: block) {
+  display: $value;
+  margin: 0 auto;
+}
+
+//line
+@mixin line($size: 1px, $value: 1) {
+  @include margin(top, $value);
+  @include margin(bottom, $value);
+  border: 0;
+  border-top: $size solid $border;
+}

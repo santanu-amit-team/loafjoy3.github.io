@@ -1,0 +1,396 @@
+/*....hero section
+...........................*/
+.section_hero {
+  background: bg("curve.svg") no-repeat center bottom color(secondary-lighter);
+  background-size: 100%;
+  padding: 3rem 0;
+  text-align: center;
+
+  &_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .hero-img {
+      max-width: 100%;
+    }
+
+    .hero_content {
+      max-width: 800px;
+      background: bg("love-shade.png") no-repeat top center;
+      background-size: 100%;
+      text-transform: uppercase;
+      padding: 3.875rem 0 1rem;
+
+      @include media(">=md") {
+        background-size: auto;
+        @include margin(top, -18.125);
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-size: clamp(2rem, 3vw, 2.25rem);
+        font-weight: weight(bold);
+        color: color(primary);
+      }
+      h2 {
+        font-size: 2rem;
+        font-size: clamp(2rem, 3vw, 2.25rem);
+        font-weight: weight(bold);
+        color: color(mark);
+      }
+      h3 {
+        font-size: 1.5rem;
+        font-size: clamp(1.5rem, 2vw, 1.5rem);
+        font-weight: weight(regular);
+        color: color(clr-shade1);
+        @include margin(top, 0.5);
+      }
+      p {
+        font-size: 1.25rem;
+        color: color(secondary);
+        font-family: $ff-heading;
+        font-weight: weight(medium);
+      }
+      .btn-light {
+        @include margin(top, 1);
+        border: 1px solid color(secondary);
+        @include hover-focus {
+          border: 1px solid color(primary);
+        }
+      }
+    }
+  }
+}
+
+/*....section
+...........................*/
+.section {
+  padding: 3rem 0;
+
+  &_wrap {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: space-between;
+    align-items: flex-start;
+    grid-gap: 2rem;
+  }
+}
+
+/*....section_two
+...........................*/
+.section_two {
+  padding: 5.5rem 0;
+  position: relative;
+
+  @include media(">=xl") {
+    background-image: bg("butterfly.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 125% 90%;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: -18%;
+      top: 15%;
+      background: bg("board.png") no-repeat;
+      background-size: 100%;
+      width: 315px;
+      height: 294px;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .subheading {
+    text-align: right;
+    @include margin(bottom, 0.5);
+  }
+  .heading {
+    text-align: right;
+    @include margin(bottom, 1);
+  }
+
+  .box_video {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+    align-items: flex-start;
+    grid-gap: 0.5rem;
+
+    @include media(">=md") {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .video_box {
+      @include media(">=md") {
+        grid-column: span 5;
+      }
+
+      .tab-content {
+        display: none;
+        transition: 0.3s ease all;
+
+        .video {
+          width: 100%;
+          height: 310px;
+        }
+
+        &.current {
+          display: inherit;
+          transition: 0.3s ease all;
+        }
+      }
+    }
+    .tabs {
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+
+      li {
+        cursor: pointer;
+        transition: 0.3s ease all;
+        flex-basis: 100px;
+
+        img {
+          @include size(100%);
+          object-fit: cover;
+        }
+
+        &.current {
+          transition: 0.3s ease all;
+        }
+      }
+    }
+  }
+}
+
+/*....section_three
+...........................*/
+.section_three {
+  padding: 0 0 3rem;
+  .container {
+    background: bg("u-shape.svg") no-repeat right top;
+    background-size: 50%;
+  }
+
+  .section_wrap {
+    padding: 5.5rem 0px 3rem;
+
+    .box_slider {
+      #sync1 {
+        @include margin(bottom, 2);
+        .item {
+          img {
+            width: auto;
+            max-width: 100%;
+            @include m-auto;
+          }
+        }
+      }
+
+      #sync2 {
+        position: relative;
+        .owl-stage-outer {
+          width: 100%;
+          @include m-auto();
+        }
+        .item {
+          img {
+            width: auto;
+            max-width: 85%;
+            @include m-auto();
+          }
+
+          h1 {
+            font-size: 18px;
+          }
+        }
+        .current .item {
+          background: color(secondary-lighter);
+        }
+      }
+
+      .owl-theme {
+        .owl-dots {
+          display: none;
+        }
+        .owl-prev,
+        .owl-next {
+          display: none;
+        }
+        .owl-nav {
+          text-align: left;
+          [class*="owl-"] {
+            transition: all 0.3s ease;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            &.disabled:hover {
+              background-color: transparent;
+            }
+          }
+          .owl-prev {
+            position: absolute;
+            top: 25%;
+            left: 0;
+            background: bg("angle-left.png") no-repeat;
+            background-size: 1rem;
+            @include size(2rem);
+          }
+          .owl-next {
+            position: absolute;
+            top: 25%;
+            right: 0;
+            background: bg("angle-right.png") no-repeat;
+
+            background-size: 1rem;
+            @include size(2rem);
+          }
+        }
+      }
+
+      //arrows on first carousel
+      #sync1.owl-theme {
+        position: relative;
+        .owl-next,
+        .owl-prev {
+          width: 22px;
+          height: 40px;
+          margin-top: -20px;
+          position: absolute;
+          top: 50%;
+        }
+        .owl-prev {
+          left: 10px;
+        }
+        .owl-next {
+          right: 10px;
+        }
+      }
+    }
+  }
+}
+
+/*....package section
+...........................*/
+.section_package {
+  @include set-background(color(white));
+  padding: 1.5rem 0;
+  @include border(bottom, 1.375rem, color(secondary-light));
+
+  @include media(">=xl") {
+    background-image: bg("sidebar.jpg");
+    background-repeat: no-repeat;
+    background-position: 110% top;
+  }
+
+  &_wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+
+    .package_box {
+      padding: 2rem 0;
+      text-align: center;
+      transition: all 0.5s ease;
+
+      .box_img {
+        position: relative;
+        text-align: center;
+        @include size(16.5rem);
+        @include bd-radius(100%);
+        margin: 0 auto 2rem;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: -35px;
+          left: 8px;
+          height: 16rem;
+          width: 8rem;
+          border-radius: 150px 0px 0px 150px;
+          background: #a5e4dc;
+          transform: rotate(20deg);
+        }
+        .circle {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          @include size(14.375rem);
+          @include bd-radius(100%);
+          @include m-auto();
+          background: color(secondary-lighter);
+          padding: 1rem;
+          position: relative;
+          z-index: 1;
+        }
+      }
+      .box_content {
+        .star {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0.25rem 0;
+
+          li {
+            color: color(secondary);
+            padding: 0 2px;
+            font-size: 1rem;
+          }
+        }
+
+        h4 {
+          font-size: 1.5rem;
+          text-transform: uppercase;
+          color: color(primary);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          text-align: left;
+
+          span.first {
+            flex-basis: 25%;
+          }
+          span.small {
+            font-size: 1.125rem;
+          }
+        }
+
+        .price {
+          font-size: 1.5rem;
+          font-weight: weight(bold);
+          color: color(mark);
+        }
+        .btn {
+          margin: 1rem 0;
+        }
+        .secure {
+          display: block;
+          @include m-auto();
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min--moz-device-pixel-ratio: 1.25),
+  only screen and (-o-min-device-pixel-ratio: 1.25/1),
+  only screen and (min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 200dpi),
+  only screen and (min-resolution: 1.25dppx) {
+}

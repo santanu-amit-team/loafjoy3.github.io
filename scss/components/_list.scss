@@ -1,0 +1,191 @@
+li {
+  list-style: none;
+  ul {
+    @include margin(top, 1);
+  }
+}
+//order list
+.order_list {
+  list-style: none;
+  counter-reset: my-counter;
+
+  li {
+    counter-increment: my-counter;
+    @include margin(bottom, 0.5);
+    @include padding(left, 1);
+
+    &::before {
+      content: counter(my-counter) ". ";
+      color: color(secondary);
+    }
+  }
+}
+
+//unorder list
+.unorder_list {
+  list-style: disc;
+  @include margin(left, 1.75);
+
+  li {
+    @include margin(bottom, 0.5);
+    @include padding(left, 0);
+  }
+  ul {
+    list-style: circle;
+  }
+}
+
+//icon list
+.icon_list {
+  @include margin(bottom, 2);
+  @include padding(left, 1.25);
+  li + li {
+    @include margin(top, 0.25);
+  }
+
+  li {
+    position: relative;
+    @include padding(left, 2);
+
+    font-size: 1.375rem;
+    font-size: clamp(1.25rem, 3vw, 1.375rem);
+    font-weight: weight(bold);
+    color: color(accent-dark);
+
+    &:before {
+      content: "\f004";
+      font-family: "Font Awesome 5 Free";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: color(primary);
+      font-size: 1.5rem;
+    }
+  }
+
+  &.mark li::before {
+    color: color(mark);
+  }
+}
+
+//content list
+.content_list {
+  li + li {
+    @include margin(top, 2);
+  }
+  li {
+    span.title {
+      color: color(secondary);
+      display: block;
+      font-weight: weight(bold);
+      @include margin(bottom, 0.5);
+
+      span.star {
+        float: right;
+      }
+    }
+  }
+  &.list2 {
+    color: color(primary);
+    h3 {
+      position: relative;
+      @include padding(bottom, 0.5);
+      @include margin(bottom, 0.5);
+      font-family: $ff-base-smbold;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: color(mark);
+        width: 3rem;
+        height: 0.25rem;
+        @include bd-radius(3rem);
+      }
+    }
+    li {
+      font-size: 1.25rem;
+      font-family: $ff-base-smbold;
+    }
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min--moz-device-pixel-ratio: 1.25),
+  only screen and (-o-min-device-pixel-ratio: 1.25/1),
+  only screen and (min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 200dpi),
+  only screen and (min-resolution: 1.25dppx) {
+  .img_list::before {
+    background: bg("premiums@2x.png") no-repeat;
+    background-size: 50px;
+  }
+
+  .img_list1 {
+    li {
+      &:nth-child(1)::before {
+        background: bg("premiums@2x.png") no-repeat;
+        background-size: 50px;
+      }
+      &:nth-child(2)::before {
+        background: bg("deathbenefits@2x.png") no-repeat;
+        background-size: 50px;
+      }
+      &:nth-child(3):before {
+        background: bg("age@2x.png") no-repeat;
+        background-size: 50px;
+      }
+      &:nth-child(4)::before {
+        background: bg("noexam@2x.png") no-repeat;
+        background-size: 50px;
+      }
+    }
+  }
+
+  .img_list2 {
+    li {
+      &:nth-child(1)::before {
+        background: bg("residence@2x.png") no-repeat;
+        background-size: 50px;
+      }
+      &:nth-child(2):before {
+        background: bg("age@2x.png") no-repeat;
+        background-size: 50px;
+      }
+      &:nth-child(3)::before {
+        background: bg("heart@2x.png") no-repeat;
+        background-size: 50px;
+      }
+    }
+  }
+
+  .img_list3 {
+    li {
+      &:nth-child(1)::before {
+        background: bg("24@2x.png") no-repeat;
+        background-size: 50px;
+      }
+      &:nth-child(2):before {
+        background: bg("cost@2x.png") no-repeat;
+        background-size: 50px;
+      }
+    }
+  }
+
+  .img_list4 {
+    li {
+      &:nth-child(1)::before {
+        background: bg("voice@2x.png") no-repeat;
+        background-size: 50px;
+      }
+      &:nth-child(2):before {
+        background: bg("email@2x.png") no-repeat;
+        background-size: 50px;
+      }
+      &:nth-child(3):before {
+        background: bg("paper@2x.png") no-repeat;
+        background-size: 50px;
+      }
+    }
+  }
+}

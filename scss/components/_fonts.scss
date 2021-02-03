@@ -1,0 +1,44 @@
+// font-family: 'Ubuntu', sans-serif;
+// Light 300
+// Regular 400
+// Medium 500
+// Bold 700
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+@font-face {
+  font-family: "eina-regular";
+  src: font("eina-regular.woff") format("woff"),
+    font("eina-regular.woff2") format("woff2"),
+    font("eina-regular.svg#eina-regular") format("svg"), url("eina-regular.eot"),
+    font("eina-regular.eot?#iefix") format("embedded-opentype"),
+    font("eina-regular.ttf") format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "eina-semibold";
+  src: font("eina-semibold.woff") format("woff"),
+    font("eina-semibold.woff2") format("woff2"),
+    font("eina-semibold.svg#eina-semibold") format("svg"),
+    font("eina-semibold.eot"),
+    font("eina-semibold.eot?#iefix") format("embedded-opentype"),
+    font("eina-semibold.ttf") format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "eina-bold";
+  src: font("eina-bold.woff") format("woff"),
+    font("eina-bold.woff2") format("woff2"),
+    font("eina-bold.svg#eina-bold") format("svg"), url("eina-bold.eot"),
+    font("eina-bold.eot?#iefix") format("embedded-opentype"),
+    font("eina-bold.ttf") format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

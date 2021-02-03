@@ -1,0 +1,31 @@
+// Sizing shortcuts
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+//font-size
+@mixin font-size($value) {
+  font-size: $value;
+}
+
+//margin
+@mixin margin($position, $unit) {
+  margin-#{$position}: $unit + em;
+}
+@mixin m-auto() {
+  margin: 0 auto;
+}
+
+//padding
+@mixin padding($position, $unit) {
+  padding-#{$position}: $unit + em;
+}
+
+//content gap
+@mixin content-gap($unit: 1) {
+  & > * + * {
+    @include margin(top, $unit);
+  }
+}

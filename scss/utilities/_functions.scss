@@ -1,0 +1,38 @@
+//font path
+$fonturl: "../fonts/";
+@function font($font) {
+  @return url($fonturl + $font);
+}
+
+//img path
+$imgurl: "../images/";
+@function bg($img) {
+  @return url($imgurl + $img);
+}
+
+// font-weight
+@function weight($value) {
+  @return map-get($weight, $value);
+}
+
+//......................................
+// colors
+@function color($color-name) {
+  @return map-get($color, $color-name);
+}
+
+//set text color based on background
+@function set-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return color(accent);
+  } @else {
+    @return color(light);
+  }
+}
+
+//set background and text color
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
+//......................................

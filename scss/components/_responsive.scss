@@ -1,0 +1,33 @@
+// breakpoint-xs: 0;
+// breakpoint-sm: 576px;
+// breakpoint-md: 768px;
+// breakpoint-lg: 992px;
+// breakpoint-xl: 1200px;
+
+@include media(">=xs") {
+}
+
+@include media(">=sm") {
+}
+
+@include media(">=md") {
+}
+
+@include media(">=lg") {
+  //home page
+  //@include home-lg();
+}
+
+@include media(">=xl") {
+  //home page
+  //@include home-xl();
+}
+
+//spacing media query
+@include media("<md") {
+  .section_Companies,
+  .section_feature,
+  .section_review {
+    padding: ($spacer / 2) 0;
+  }
+}

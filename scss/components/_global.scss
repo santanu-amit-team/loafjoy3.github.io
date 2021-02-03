@@ -1,0 +1,112 @@
+// Default styles
+.container {
+  width: 100%;
+  max-width: 100%;
+  @include padding(left, 0.938);
+  @include padding(right, 0.938);
+  @include m-auto();
+  box-sizing: border-box;
+
+  @include media(">=lg") {
+    width: 73.125rem;
+  }
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+::selection {
+  @include set-background(color(primary));
+}
+
+.text-center {
+  @include text(center);
+}
+
+.align-center {
+  @include align-center();
+}
+
+hr {
+  @include line();
+}
+
+.success {
+  color: color(success);
+}
+.danger {
+  color: color(error);
+}
+.warning {
+  color: color(warning);
+}
+.underline {
+  text-decoration: underline;
+}
+
+.heading {
+  font-family: $ff-base-smbold;
+  color: color(primary);
+  @include margin(bottom, 1.75);
+  span {
+    color: color(mark);
+  }
+}
+.subheading {
+  font-family: $ff-base-smbold;
+  color: color(mark);
+  line-height: 1.2;
+  text-transform: uppercase;
+  @include margin(bottom, 2);
+  i {
+    display: block;
+    line-height: 0.5;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+// background color
+.bg-light {
+  @include set-background(color(bg-light));
+}
+.bg-lighter {
+  @include set-background(color(light));
+}
+.bg-white {
+  @include set-background(color(white));
+}
+.bg-dark {
+  @include set-background(color(dark));
+}
+.bg-secondary-light {
+  @include set-background(color(secondary-light));
+}
+.bg-secondary-lighter {
+  @include set-background(color(secondary-lighter));
+}
+
+/*.....scroll to top
+......................*/
+.scrollup {
+  @include set-background(color(bg));
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: fixed;
+  bottom: 3rem;
+  right: 2rem;
+  padding: 0.25rem;
+  display: none;
+  z-index: 3;
+
+  i {
+    padding: 0;
+  }
+}

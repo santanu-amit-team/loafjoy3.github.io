@@ -1,0 +1,68 @@
+//Media Query Manager
+
+//  0-575: portrait-phone
+//  576-767: landscape-phone
+//  768-991: tablet
+//  992-1199: desktop
+//  1200+: large-desktop
+
+//normal media query
+//@mixin portrait-phone {
+//    @media (max-width: 575.98px) { @content };
+//}
+//@mixin landscape-phone {
+//    @media (max-width: 767.98px) { @content };
+//}
+//@mixin tablet {
+//    @media (max-width: 991.98px) { @content };
+//}
+//@mixin desktop {
+//    @media (max-width: 1199.98px) { @content };
+//}
+
+//  Breakpoint argument choices:
+//  - portrait-phone
+//  - landscape-phone
+//  - tablet
+//  - desktop
+//  - large-desktop
+
+//media with condition
+@mixin respond($breakpoint) {
+  @if $breakpoint == xxs {
+    @media (max-width: 479.98px) {
+      @content;
+    }
+  }
+  @if $breakpoint == xs {
+    @media (max-width: 575.98px) {
+      @content;
+    }
+  }
+  @if $breakpoint == sm {
+    @media (max-width: 767.98px) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (max-width: 991.98px) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (max-width: 1199.98px) {
+      @content;
+    }
+  }
+  @if $breakpoint == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+//how to use breakpoint:
+
+// @include respond(sm) {
+//   --content--
+// }
